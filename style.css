@@ -1,0 +1,257 @@
+:root {
+  --paper: #EEF2ED;
+  --surface: #FFFFFF;
+  --ink: #232B26;
+  --ink-soft: #667069;
+  --line: #DCE3DC;
+
+  --correct: #4F9D69;
+  --correct-soft: #E7F3EA;
+  --wrong: #C0483A;
+  --wrong-soft: #F8E7E4;
+  --accent: #3B5BA9;
+
+  --cta: #2A3752;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-card: 0 1px 2px rgba(35,43,38,0.04), 0 8px 24px rgba(35,43,38,0.07);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: radial-gradient(circle at 1px 1px, rgba(35,43,38,0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  padding: 28px 16px 64px;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.screen { display: flex; flex-direction: column; gap: 16px; }
+
+.planner-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.meta-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.meta-chip {
+  font-size: 0.76rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--cta);
+  color: #F4F6F2;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.primary-btn:hover { opacity: 0.92; }
+.primary-btn:active { transform: scale(0.98); }
+
+/* ===== 퀴즈 화면 ===== */
+.quiz-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.q-index {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  flex: none;
+}
+
+.track {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.track-fill {
+  height: 100%;
+  width: 20%;
+  border-radius: 99px;
+  background: var(--accent);
+  transition: width 0.35s ease;
+}
+
+.passage {
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+
+.question-text {
+  margin: 0 0 18px;
+  font-size: 1.08rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-btn {
+  text-align: left;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.choice-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--paper);
+}
+
+.choice-btn:disabled { cursor: default; }
+
+.choice-btn.is-correct {
+  border-color: var(--correct);
+  background: var(--correct-soft);
+  font-weight: 600;
+}
+
+.choice-btn.is-wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-soft);
+  font-weight: 600;
+}
+
+.feedback {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+}
+
+.feedback-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.feedback-title.correct { color: var(--correct); }
+.feedback-title.wrong { color: var(--wrong); }
+
+.feedback-explain {
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* ===== 결과 화면 ===== */
+.score {
+  text-align: center;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  margin: 8px 0 4px;
+}
+
+.score-slash { color: var(--line); margin: 0 4px; }
+
+.score-msg {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin: 0 0 24px;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.review-item {
+  border-left: 4px solid var(--wrong);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.review-item .q { font-size: 0.86rem; font-weight: 600; margin: 0 0 4px; }
+.review-item .a { font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+
+.review-empty {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  padding: 12px 0 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
