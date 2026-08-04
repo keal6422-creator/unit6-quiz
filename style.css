@@ -41,6 +41,7 @@ body {
 }
 
 .screen { display: flex; flex-direction: column; gap: 16px; }
+.screen[hidden] { display: none; }
 
 .planner-card {
   background: var(--surface);
@@ -102,7 +103,7 @@ body {
 .primary-btn:hover { opacity: 0.92; }
 .primary-btn:active { transform: scale(0.98); }
 
-/* ===== 퀴즈 화면 ===== */
+/* ===== �댁쫰 �붾㈃ ===== */
 .quiz-head {
   display: flex;
   align-items: center;
@@ -176,6 +177,12 @@ body {
 
 .choice-btn:disabled { cursor: default; }
 
+.choice-btn u {
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
 .choice-btn.is-correct {
   border-color: var(--correct);
   background: var(--correct-soft);
@@ -210,7 +217,7 @@ body {
   line-height: 1.55;
 }
 
-/* ===== 결과 화면 ===== */
+/* ===== 寃곌낵 �붾㈃ ===== */
 .score {
   text-align: center;
   font-family: "Noto Serif KR", serif;
